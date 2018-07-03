@@ -10,21 +10,43 @@ interface Person {
     lastName: string;
 }
 
-function greeter(person : Person) {
-    return "Hello, " + person.firstName + " " + person.lastName;
+function test(person: Person) {
+    console.log(person.firstName);
 }
 
-let user = new Student("Jane", "M.", "User");
+test({
+    firstName: '123',
+    lastName: '123'
+});
 
-document.body.innerHTML = greeter(user);
-let x: [string, number];
-x = ['hello', 10]; // OK
+type user = {
+    id: number,
+    name: string
+}
+const users: user[] = [
+    { id: 1, name: 'a' },
+    { id: 2, name: 'b' },
+    { id: 3, name: 'c' },
+    { id: 4, name: 'd' },
+    { id: 5, name: 'e' },
+];
 
-enum Color {Red = 1, Green = 2, Blue = 4}
-let c: Color = Color.Green;
-
-function warnUser(): void {
-    alert("This is my warning message");
+function aaa(user: user) {
+    return `<div id="${user.id}">${user.name.toLocaleLowerCase()}</div>`
 }
 
-let unusable: void = undefined;
+const html = users.map(x => aaa(x))
+let list: string[] = ['1', '2', '3']
+let list2: Array<number> = [1, 2, 3];
+
+class Greeter {
+    greeting: string;
+    constructor(message: string) {
+        this.greeting = message;
+    }
+    greet() {
+        return "Hello, " + this.greeting;
+    }
+}
+
+let greeter = new Greeter("world");

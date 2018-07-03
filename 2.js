@@ -7,21 +7,33 @@ var Student = /** @class */ (function () {
     }
     return Student;
 }());
-function greeter(person) {
-    return "Hello, " + person.firstName + " " + person.lastName;
+function test(person) {
+    console.log(person.firstName);
 }
-var user = new Student("Jane", "M.", "User");
-document.body.innerHTML = greeter(user);
-var x;
-x = ['hello', 10]; // OK
-var Color;
-(function (Color) {
-    Color[Color["Red"] = 1] = "Red";
-    Color[Color["Green"] = 2] = "Green";
-    Color[Color["Blue"] = 4] = "Blue";
-})(Color || (Color = {}));
-var c = Color.Green;
-function warnUser() {
-    alert("This is my warning message");
+test({
+    firstName: '123',
+    lastName: '123'
+});
+var users = [
+    { id: 1, name: 'a' },
+    { id: 2, name: 'b' },
+    { id: 3, name: 'c' },
+    { id: 4, name: 'd' },
+    { id: 5, name: 'e' },
+];
+function aaa(user) {
+    return "<div id=\"" + user.id + "\">" + user.name.toLocaleLowerCase() + "</div>";
 }
-var unusable = 213234234;
+var html = users.map(function (x) { return aaa(x); });
+var list = ['1', '2', '3'];
+var list2 = [1, 2, 3];
+var Greeter = /** @class */ (function () {
+    function Greeter(message) {
+        this.greeting = message;
+    }
+    Greeter.prototype.greet = function () {
+        return "Hello, " + this.greeting;
+    };
+    return Greeter;
+}());
+var greeter = new Greeter("world");
