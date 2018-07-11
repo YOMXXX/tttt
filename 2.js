@@ -27,3 +27,4 @@ function warnUser() {
 var unusable = 213234234;
 console.log('add1');
 alert('add2');
+alert('add3');
