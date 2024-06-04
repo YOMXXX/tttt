@@ -1,0 +1,6 @@
+[submodule "qwe"]
+	path = qwe
+	url = https://github.com/YOMXXX/test.git
+[submodule "qwe1"]
+	path = qwe1
+	url = https://github.com/YOMXXX/test.git
